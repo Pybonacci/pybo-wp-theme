@@ -16,6 +16,22 @@ else
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
+	<footer class="entry-footer">
+		<div class="entry-meta">
+			<?php isola_posted_on(); ?>
+		</div><!-- .entry-meta -->
+		<?php
+			$tags_list = get_the_tag_list( '', '' );
+			if ( $tags_list ) :
+		?>
+		<span class="tags-links">
+			<?php echo $tags_list; ?>
+		</span>
+		<?php endif; // End if $tags_list ?>
+
+		<?php edit_post_link( __( 'Edit', 'isola' ), '<span class="edit-link">', '</span>' ); ?>
+	</footer><!-- .entry-footer -->
+
 	<?php if ( has_post_thumbnail() && 'image' == $format ) : ?>
 		<figure class="entry-thumbnail">
 			<?php the_post_thumbnail( 'isola-featured' ); ?>
@@ -66,19 +82,4 @@ else
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<div class="entry-meta">
-			<?php isola_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-			$tags_list = get_the_tag_list( '', '' );
-			if ( $tags_list ) :
-		?>
-		<span class="tags-links">
-			<?php echo $tags_list; ?>
-		</span>
-		<?php endif; // End if $tags_list ?>
-
-		<?php edit_post_link( __( 'Edit', 'isola' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
