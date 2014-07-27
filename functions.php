@@ -165,3 +165,18 @@ function isola_admin_scripts( $hook_suffix ) {
 
 }
 add_action( 'admin_enqueue_scripts', 'isola_admin_scripts' );
+
+/**
+ * Process [sourcecode] & [code] shortcodes
+ * Author: Juan Luis Cano Rodríguez <juanlu001@gmail.com>
+ */
+function sourcecode_function($atts, $content = null) {
+	$clean = wp_strip_all_tags($content);
+	$return_string = '<pre><code class="language-python">' . $clean . '</code></pre>';
+	return $return_string;
+}
+function register_shortcodes(){
+	add_shortcode('sourcecode', 'sourcecode_function');
+	add_shortcode('code', 'sourcecode_function');
+}
+add_action('init', 'register_shortcodes');
