@@ -150,6 +150,7 @@ hr {
 
 /* Text elements */
 p {
+  font-size: 1.3em;
   margin-bottom: 24px;
 }
 
@@ -208,6 +209,7 @@ pre {
 }
 
 code, kbd, tt, var {
+  background-color: #eee;
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   font-size: 0.875em;
   line-height: 1.71429em;
@@ -861,7 +863,7 @@ img {
 
 /* Links */
 a {
-  color: #44c2b2;
+  color: #09c;
   text-decoration: none;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -876,6 +878,7 @@ a:hover, a:focus, a:active {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
+  text-decoration: underline;
   transition: all 0.2s ease-in-out;
 }
 
@@ -947,6 +950,13 @@ a:hover, a:focus, a:active {
   position: relative;
 }
 
+.site-header-inner img {
+  vertical-align: middle;
+  height: 30px;
+  margin: 0px 10px 0px 0px;
+  border: 1px solid rgb(221, 221, 221);
+}
+
 .site-header-image div {
   overflow: hidden;
   height: 100%;
@@ -974,6 +984,7 @@ a:hover, a:focus, a:active {
   font-size: 1em;
   line-height: 2;
   clear: none;
+  display: inline;
   font-weight: bold;
   letter-spacing: 1px;
   margin: 0;
@@ -989,7 +1000,7 @@ a:hover, a:focus, a:active {
   font-size: 0.8125em;
   line-height: 1.96923em;
   clear: none;
-  display: none;
+  display: inline;
   margin: 0;
 }
 
@@ -1039,7 +1050,7 @@ a:hover, a:focus, a:active {
 .toggle {
   background: transparent;
   float: left;
-  margin: 0 26px 0 0;
+  margin: 0 16px 0 0;
   height: 24px;
   padding: 0;
   position: relative;
@@ -1261,7 +1272,7 @@ a:hover, a:focus, a:active {
   color: #777777;
   font-size: 0.8125em;
   line-height: 1.96923em;
-  margin: 0 auto;
+  margin: 0 auto 15px;
 }
 .entry-footer a {
   color: #777777;
@@ -1604,6 +1615,11 @@ embed,
 iframe,
 object {
   max-width: 100%;
+}
+
+pre[class*="language-"] > code[data-language] {
+  max-height: none;
+  overflow: auto;
 }
 
 /* =Navigation */
@@ -2129,6 +2145,10 @@ div#respond,
     margin: 26px 0;
   }
 
+  p {
+    text-align: justify;
+  }
+
   .site-content,
   .site-footer {
     border-left: 1px solid #efefef;
@@ -2158,7 +2178,7 @@ div#respond,
   .post-navigation,
   .comment-navigation,
   .entry-format {
-    width: 650px;
+    width: 760px;
   }
 
   .comment-reply-title {
@@ -2166,7 +2186,7 @@ div#respond,
   }
 
   .hentry {
-    padding: 6em 0;
+    padding: 1em 0;
   }
 
   .format-link .entry-title a:after {
@@ -2175,7 +2195,7 @@ div#respond,
 
   .comments-area {
     border-bottom: 4px solid #efefef;
-    padding: 4em 0;
+    padding: 1em 0;
   }
 
   .site-info {
