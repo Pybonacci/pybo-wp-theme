@@ -165,3 +165,12 @@ function isola_admin_scripts( $hook_suffix ) {
 
 }
 add_action( 'admin_enqueue_scripts', 'isola_admin_scripts' );
+
+function plotly_shortcode($atts, $content=null){
+    extract(shortcode_atts(array(
+        'id' => 'igraph',
+        'height' => 400,
+    ), $atts));
+    return '<iframe height="' . $height . '" id="' . $id . '" scrolling="no" seamless="seamless" src="' . $content . '" width="100%"></iframe>';
+}
+add_shortcode('plotly', 'plotly_shortcode');
