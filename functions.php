@@ -180,3 +180,12 @@ function register_shortcodes(){
 	add_shortcode('code', 'sourcecode_function');
 }
 add_action('init', 'register_shortcodes');
+
+function plotly_shortcode($atts, $content=null){
+    extract(shortcode_atts(array(
+        'id' => 'igraph',
+        'height' => 400,
+    ), $atts));
+    return '<iframe height="' . $height . '" id="' . $id . '" scrolling="no" seamless="seamless" src="' . $content . '" width="100%"></iframe>';
+}
+add_shortcode('plotly', 'plotly_shortcode');
