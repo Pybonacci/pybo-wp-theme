@@ -171,8 +171,15 @@ add_action( 'admin_enqueue_scripts', 'isola_admin_scripts' );
  * Author: Juan Luis Cano Rodríguez <juanlu001@gmail.com>
  */
 function sourcecode_function($atts, $content = null) {
+    extract(shortcode_atts(array(
+        'language' => null,
+    ), $atts));
 	$clean = wp_strip_all_tags($content);
-	$return_string = '<pre><code class="language-python">' . $clean . '</code></pre>';
+	if (is_null($language)) {
+        $return_string = '<pre><code>' . $clean . '</code></pre>';
+	} else {
+        $return_string = '<pre><code class="language-' . strtolower($language) . '">' . $clean . '</code></pre>';
+    }
 	return $return_string;
 }
 function register_shortcodes(){
