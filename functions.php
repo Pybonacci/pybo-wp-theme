@@ -196,3 +196,8 @@ function plotly_shortcode($atts, $content=null){
     return '<iframe height="' . $height . '" id="' . $id . '" scrolling="no" seamless="seamless" src="' . $content . '" width="100%"></iframe>';
 }
 add_shortcode('plotly', 'plotly_shortcode');
+
+/**
+ * Remove texturize filter
+ */
+remove_filter( 'the_content', 'wptexturize' );
